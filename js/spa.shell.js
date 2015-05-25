@@ -245,7 +245,6 @@ spa.shell = (function () {
   // End Event handler /onHashchange/
   
   // Begin Event handler /onClickChat/
-  
   onClickChat = function (event) {
     changeAnchorPart({
       chat: (stateMap.is_chat_retracted ? 'open' : 'closed')
@@ -271,6 +270,10 @@ spa.shell = (function () {
     $.uriAnchor.configModule({
       schema_map : configMap.anchor_schema_map
     });
+    
+    // configure and initialize feature modules
+    spa.chat.configModule({});
+    spa.chat.initModule(jqueryMap.$chat);
     
     // Handle URI anchor chnage events.
     // This is done /after/ all feature modules are configured and initialized,
